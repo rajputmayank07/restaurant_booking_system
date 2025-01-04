@@ -16,7 +16,7 @@ connectDB();
 
 // Middleware
 app.use(express.json());
-app.set('trust proxy', 1);  // Necessary if using reverse proxies like Railway
+app.set('trust proxy', true);  // Necessary if using reverse proxies like Railway
 app.use(
   session({
     secret: process.env.SESSION_SECRET || 'default_secret',
@@ -26,8 +26,8 @@ app.use(
     cookie: {
       secure: process.env.NODE_ENV === 'production',
       httpOnly: true,
+      sameSite: 'None', 
       maxAge: 1000 * 60 * 60 * 24,  // 1 day
-      sameSite: 'none',  
     },
   })
 );
