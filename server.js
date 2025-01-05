@@ -35,7 +35,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(
   cors({
-    origin: process.env.CORS_ORIGIN,
+    origin: [/https:\/\/.*-netlify\.app$/],  // Allow all Netlify subdomains
     credentials: true,
   })
 );
