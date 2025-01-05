@@ -35,7 +35,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(
   cors({
-    origin: [/https:\/\/.*-netlify\.app$/],  // Allow all Netlify subdomains
+    origin: [/https:\/\/.*-netlify\.app$/,'https://tangerine-mandazi-1cfef2.netlify.app/'],  // Allow all Netlify subdomains
     credentials: true,
   })
 );
