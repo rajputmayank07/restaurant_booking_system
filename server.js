@@ -33,12 +33,10 @@ app.use(
 );
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(
-  cors({
-    origin: [/https:\/\/.*-netlify\.app$/,'https://tangerine-mandazi-1cfef2.netlify.app/'],  // Allow all Netlify subdomains
-    credentials: true,
-  })
-);
+app.options('*', cors({
+  origin: [/https:\/\/.*-netlify\.app$/, 'https://tangerine-mandazi-1cfef2.netlify.app'],
+  credentials: true,
+}));
 
 // API Routes
 app.use('/api/auth', authRoutes);
